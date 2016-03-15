@@ -5,8 +5,8 @@ I made this watch face shortly after purchasing my first Android watch. Expandin
 ## todo
 
 * update to sdk 23
-** permission model (camera)
-** Camera2 implementation instead of deprecated Camera
+* permission model (camera)
+* Camera2 implementation instead of deprecated Camera
 
 ---
 
