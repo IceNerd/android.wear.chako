@@ -1,0 +1,60 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="icenerd.chako">
+
+    <uses-feature android:name="android.hardware.type.watch" />
+    <uses-permission android:name="com.google.android.permission.PROVIDE_BACKGROUND" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.DeviceDefault">
+        <service
+            android:name=".ChakoWatchFace"
+            android:label="@string/title_watch_face"
+            android:allowEmbedded="true"
+            android:permission="android.permission.BIND_WALLPAPER" >
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/watch_face" />
+            <meta-data
+                android:name="com.google.android.wearable.watchface.preview"
+                android:resource="@drawable/watchface_preview" />
+            <meta-data
+                android:name="com.google.android.wearable.watchface.preview_circular"
+                android:resource="@drawable/watchface_preview" />
+            <meta-data
+                android:name="com.google.android.wearable.watchface.companionConfigurationAction"
+                android:value="icenerd.chronus.CONFIG" />
+            <meta-data
+                android:name="com.google.android.wearable.watchface.wearableConfigurationAction"
+                android:value="icenerd.chronus.CONFIG" />
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+                <category
+                    android:name="com.google.android.wearable.watchface.category.WATCH_FACE" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".system.WearConfigActivity"
+            android:label="@string/title_watch_face">
+            <intent-filter>
+                <action android:name="icenerd.chronus.CONFIG" />
+                <category android:name="com.google.android.wearable.watchface.category.WEARABLE_CONFIGURATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <service android:name=".system.WearListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+    </application>
+
+</manifest>

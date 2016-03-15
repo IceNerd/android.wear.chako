@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Chako</string>
+    <string name="dialog_ok">OK</string>
+    <string name="ndc_title">No wearable device is currently connected.</string>
+    <string name="popup_set_title">Name this color</string>
+    <string name="popup_remove_color">Remove this color</string>
+</resources>
